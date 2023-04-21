@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veena-deployment
+  namespace: ingress-nginx
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: veena-app
+  template:
+    metadata:
+      labels:
+        app: veena-app
+    spec:
+      containers:
+      - name: veena
+        image: veena9999/veenak8s_practice
+        ports:
+        - containerPort: 8000
